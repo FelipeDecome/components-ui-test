@@ -21,9 +21,12 @@
         "react",
         "@typescript-eslint",
         "react-hooks",
-        "prettier"
+        "prettier",
+        "simple-import-sort"
     ],
     "rules": {
+      "simple-import-sort/imports": "error",
+      "simple-import-sort/exports": "error",
       "import/no-extraneous-dependencies": "off",
       "react/jsx-props-no-spreading": "off",
       "import/prefer-default-export": "off",
