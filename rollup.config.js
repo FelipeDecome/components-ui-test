@@ -1,10 +1,13 @@
+import babel from 'rollup-plugin-babel';
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "rollup-plugin-typescript2";
-import postcss from "rollup-plugin-postcss";
-
 const packageJson = require("./package.json");
+
+const config = {
+  extensions: ['.ts', '.tsx'],
+};
 
 export default {
   input: "src/index.ts",
@@ -22,11 +25,15 @@ export default {
   ],
   plugins: [
     peerDepsExternal(),
-    resolve(),
+    resolve({
+      extensions: config.extensions,
+    }),
     commonjs(),
+    babel({
+      extensions: config.extensions,
+      include: ['src/**/*'],
+      exclude: 'node_modules/**',
+    }),
     typescript({ useTsconfigDeclarationDir: true }),
-    postcss({
-        extensions: ['.css']
-    })
   ]
 };

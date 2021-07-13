@@ -19,13 +19,14 @@
       "moduleResolution": "node",
       "resolveJsonModule": true,
       "isolatedModules": true,
-      "noEmit": true,
       "jsx": "react"
     },
     "include": [
-      "src"
+      "src",
+      "types"
     ],
     "exclude": [
+        "src/styles",
         "node_modules",
         "lib",
         "prettier.config.js",

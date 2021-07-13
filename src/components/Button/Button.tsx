@@ -1,11 +1,12 @@
 import React from 'react';
-import './button.css';
+
+import { TSizeEnum } from '..';
+import * as Styled from './styles';
 
 export interface IButtonProps {
   label: string;
   primary?: boolean;
-  backgroundColor?: string;
-  size?: 'small' | 'medium' | 'large';
+  size?: TSizeEnum;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
@@ -13,23 +14,17 @@ const Button: React.FC<IButtonProps> = ({
   label,
   primary = true,
   size = 'medium',
-  backgroundColor,
   onClick,
 }) => {
-  const mode = primary
-    ? 'storybook-button--primary'
-    : 'storybook-button--secondary';
   return (
-    <button
+    <Styled.Button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(
-        ' ',
-      )}
-      style={backgroundColor ? { backgroundColor } : {}}
+      primary={primary}
+      size={size}
       onClick={onClick}
     >
       {label}
-    </button>
+    </Styled.Button>
   );
 };
 

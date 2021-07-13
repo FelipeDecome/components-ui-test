@@ -1,3 +1,5 @@
+import { UiGlobalStyles } from '../src'
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   controls: {
@@ -8,3 +10,12 @@ export const parameters = {
   },
   layout: 'centered',
 }
+
+export const decorators = [
+  Story => (
+    <>
+      <UiGlobalStyles />
+      <Story />
+    </>
+  )
+]
