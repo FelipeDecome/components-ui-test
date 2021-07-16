@@ -8,7 +8,7 @@ import { terser } from 'rollup-plugin-terser';
 import json from '@rollup/plugin-json';
 
 const ROOT_DIR = process.cwd();
-const INPUT_FILE = path.resolve(ROOT_DIR, 'src', 'index.ts');
+const INPUT_FILE = path.resolve(ROOT_DIR, 'lib', 'index.ts');
 const pkg = require(path.resolve(ROOT_DIR, 'package.json'));
 
 const config = {

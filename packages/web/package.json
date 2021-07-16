@@ -1,0 +1,35 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "description": "UI Web Components",
+  "author": "Felipe Decome <decome.felipe@gmail.com>",
+  "homepage": "https://github.com/FelipeDecome/components-ui-test/tree/main/packages/web#readme",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "typings/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib",
+    "typings"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FelipeDecome/components-ui-test.git"
+  },
+  "scripts": {
+    "build": "rollup -c ./../../rollup.config.js"
+  },
+  "bugs": {
+    "url": "https://github.com/FelipeDecome/components-ui-test/issues"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "dependencies": {
+    "tailwindcss": "^2.2.4",
+    "twin.macro": "^2.6.2"
+  }
+}

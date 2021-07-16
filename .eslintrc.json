@@ -22,11 +22,22 @@
         "@typescript-eslint",
         "react-hooks",
         "prettier",
-        "simple-import-sort"
+        "eslint-plugin-import-helpers"
     ],
     "rules": {
-      "simple-import-sort/imports": "error",
-      "simple-import-sort/exports": "error",
+      "import-helpers/order-imports": [
+        "warn",
+        {
+          "newlinesBetween": "always",
+          "groups": [
+            ["/^react/"],
+            ["module", "absolute"],
+            "/^@/",
+            ["parent", "sibling", "index"]
+          ],
+          "alphabetize": { "order": "asc", "ignoreCase": true }
+        }
+      ],
       "import/no-extraneous-dependencies": "off",
       "react/jsx-props-no-spreading": "off",
       "import/prefer-default-export": "off",
