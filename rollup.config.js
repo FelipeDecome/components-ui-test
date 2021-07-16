@@ -32,7 +32,17 @@ export default {
   plugins: [
     peerDepsExternal(),
     resolve({ extensions: config.extensions }),
-    typescript({ useTsconfigDeclarationDir: true }),
+    typescript({
+      tsconfigOverride: {
+        compilerOptions: {
+          declarationDir: path.resolve(ROOT_DIR, './typings'),
+          declarationMap: true,
+        },
+        include: [path.resolve(ROOT_DIR, './src/**/*')],
+      },
+      rollupCommonJSResolveHack: true,
+      useTsconfigDeclarationDir: true,
+    }),
     commonjs(),
     babel({
       babelHelpers: 'bundled',
@@ -41,6 +51,8 @@ export default {
       exclude: 'node_modules/**',
     }),
     terser(),
-    json()
+    json({
+      compact: true
+    })
   ]
 };
