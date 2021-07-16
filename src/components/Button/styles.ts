@@ -1,6 +1,6 @@
-import tw, { styled, theme, TwStyle } from 'twin.macro';
+import tw, { styled, TwStyle } from 'twin.macro';
 
-import { TSizeEnum } from '..';
+export type TSizeEnum = 'small' | 'medium' | 'large';
 
 interface IButtonProps {
   primary: boolean;
@@ -14,12 +14,11 @@ const buttonSizes: Record<TSizeEnum, TwStyle> = {
 };
 
 export const Button = styled.button<IButtonProps>`
-  color: ${theme`colors.white`};
-  ${tw`font-sans font-bold border-0 cursor-pointer rounded-lg transition-all`}
+  ${tw`font-sans font-bold border-0 text-white cursor-pointer rounded-lg transition-all`}
 
   ${props => buttonSizes[props.size]}
   ${props =>
     props.primary
-      ? tw`bg-purple-600 hover:(bg-purple-500)`
-      : tw`bg-pink-400 hover:(bg-pink-500)`}
+      ? tw`bg-primary-600 hover:bg-primary-500`
+      : tw`bg-secondary-600 hover:bg-secondary-500`}
 `;

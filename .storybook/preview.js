@@ -1,4 +1,4 @@
-import { UiGlobalStyles } from '../src'
+import { UiGlobalStyles } from '../src/styles'
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },

@@ -1,35 +1,33 @@
 {
     "compilerOptions": {
-      "target": "es5",
-      "outDir": "lib",
-      "lib": [
-        "dom",
-        "dom.iterable",
-        "esnext"
-      ],
+      "sourceMap": true,
+      "allowSyntheticDefaultImports": true,
+      "noUnusedParameters": true,
+      "noImplicitReturns": true,
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "resolveJsonModule": true,
+      "jsx": "preserve",
+      "target": "ESNext",
+      "module": "ESNext",
+      "strict": true,
+      "skipLibCheck": true,
+      // Ensure that .d.ts files are created by tsc, but not .js files
       "declaration": true,
       "declarationDir": "lib",
-      "allowJs": true,
-      "skipLibCheck": true,
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true,
-      "strict": true,
-      "forceConsistentCasingInFileNames": true,
-      "module": "esnext",
-      "moduleResolution": "node",
-      "resolveJsonModule": true,
+      // Ensure that Babel can safely transpile files in the TypeScript project
       "isolatedModules": true,
-      "jsx": "react"
-    },
+      },
     "include": [
       "src",
       "types"
     ],
     "exclude": [
-        "src/styles",
-        "node_modules",
-        "lib",
-        "prettier.config.js",
-        "rollup.config.js"
-    ]
-  }
+      "src/**/*.stories.*",
+      "src/styles",
+      "node_modules",
+      "lib",
+      "prettier.config.js",
+      "rollup.config.js"
+  ]
+}

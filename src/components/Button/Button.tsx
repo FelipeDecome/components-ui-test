@@ -1,12 +1,11 @@
 import React from 'react';
 
-import { TSizeEnum } from '..';
 import * as Styled from './styles';
 
 export interface IButtonProps {
   label: string;
   primary?: boolean;
-  size?: TSizeEnum;
+  size?: Styled.TSizeEnum;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
@@ -17,15 +16,17 @@ const Button: React.FC<IButtonProps> = ({
   onClick,
 }) => {
   return (
-    <Styled.Button
-      type="button"
-      primary={primary}
-      size={size}
-      onClick={onClick}
-    >
-      {label}
-    </Styled.Button>
+    <>
+      <Styled.Button
+        type="button"
+        primary={primary}
+        size={size}
+        onClick={onClick}
+      >
+        {label}
+      </Styled.Button>
+    </>
   );
 };
 
-export default Button;
+export { Button };
