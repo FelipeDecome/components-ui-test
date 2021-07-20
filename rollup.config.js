@@ -43,6 +43,7 @@ export default {
           declarationMap: true,
         },
         include: [path.resolve(ROOT_DIR, './lib/**/*')],
+        exclude: [path.resolve(ROOT_DIR, './lib/**/*.stories.*')]
       },
       rollupCommonJSResolveHack: true,
       useTsconfigDeclarationDir: true,

@@ -19,14 +19,12 @@
       "isolatedModules": true,
       },
     "include": [
-      "src",
-      "types"
+      "packages/**/lib/**/*.*",
     ],
     "exclude": [
-      "src/**/*.stories.*",
-      "src/styles",
+      "packages/**/lib/**/*.stories.*",
       "node_modules",
-      "lib",
+      "dist",
       "prettier.config.js",
       "rollup.config.js"
   ]
