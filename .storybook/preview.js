@@ -1,4 +1,4 @@
-import { UiGlobalStyles } from '../src/styles'
+import './index.css';
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
@@ -9,13 +9,21 @@ export const parameters = {
     },
   },
   layout: 'centered',
+  backgrounds: {
+    default: 'base',
+    values: [
+      {
+        name: 'base',
+        value: '#ffffff',
+      },
+      {
+        name: 'primary',
+        value: '#5b31e2',
+      },
+      {
+        name: 'secondary',
+        value: '#e23195',
+      },
+    ],
+  },
 }
-
-export const decorators = [
-  Story => (
-    <>
-      <UiGlobalStyles />
-      <Story />
-    </>
-  )
-]

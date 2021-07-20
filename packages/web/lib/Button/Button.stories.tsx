@@ -1,5 +1,6 @@
-import { Meta, Story } from '@storybook/react';
 import React from 'react';
+
+import { Meta, Story } from '@storybook/react';
 
 import { Button, IButtonProps } from './Button';
 
@@ -10,8 +11,11 @@ export default {
 
 const Template: Story<IButtonProps> = args => <Button {...args} />;
 
+export const Base = Template.bind({});
+Base.args = { label: 'Base', size: 'md' };
+
 export const Primary = Template.bind({});
-Primary.args = { label: 'Primary', size: 'large' };
+Primary.args = { ...Base.args, colorScheme: 'primary', label: 'Primary' };
 
 export const Secondary = Template.bind({});
-Secondary.args = { ...Primary.args, primary: false, label: 'Secondary' };
+Secondary.args = { ...Base.args, colorScheme: 'secondary', label: 'Secondary' };

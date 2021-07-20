@@ -12,7 +12,7 @@
     "lib": "lib"
   },
   "files": [
-    "lib",
+    "dist",
     "typings"
   ],
   "repository": {
@@ -20,7 +20,8 @@
     "url": "git+https://github.com/FelipeDecome/components-ui-test.git"
   },
   "scripts": {
-    "build": "rollup -c ./../../rollup.config.js"
+    "clean": "rimraf dist typings",
+    "build": "yarn clean && rollup -c ./../../rollup.config.js"
   },
   "bugs": {
     "url": "https://github.com/FelipeDecome/components-ui-test/issues"
@@ -28,8 +29,9 @@
   "peerDependencies": {
     "react": ">=16.8.0"
   },
-  "dependencies": {
-    "tailwindcss": "^2.2.4",
-    "twin.macro": "^2.6.2"
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "rollup": "^2.53.0",
+    "tailwind-styled-components": "^2.0.3"
   }
 }

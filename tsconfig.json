@@ -7,14 +7,14 @@
       "moduleResolution": "node",
       "esModuleInterop": true,
       "resolveJsonModule": true,
-      "jsx": "preserve",
+      "jsx": "react",
       "target": "ESNext",
       "module": "ESNext",
       "strict": true,
       "skipLibCheck": true,
       // Ensure that .d.ts files are created by tsc, but not .js files
       "declaration": true,
-      "declarationDir": "lib",
+      // "declarationDir": "lib",
       // Ensure that Babel can safely transpile files in the TypeScript project
       "isolatedModules": true,
       },

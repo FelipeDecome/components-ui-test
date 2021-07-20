@@ -1,0 +1,49 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Button } from './';
+
+<Meta title="Docs/Components/Button" component={Button} />
+
+# Button
+
+With `MDX`, we can define a story for `Button` right in the middle of our
+Markdown documentation.
+
+<!--- This is your Story template function, shown here in React -->
+
+## Base
+<Canvas>
+  <Button label="Base" size="xs" />
+  <Button label="Base" size="sm" />
+  <Button label="Base" />
+  <Button label="Base" size="lg" />
+  <Button label="Base" size="xs" variant="outline" />
+  <Button label="Base" size="sm" variant="outline" />
+  <Button label="Base" variant="outline" />
+  <Button label="Base" size="lg" variant="outline" />
+</Canvas>
+
+## Primary
+
+<Canvas>
+  <Button label="Primary" colorScheme="primary" size="xs" />
+  <Button label="Primary" colorScheme="primary" size="sm" />
+  <Button label="Primary" colorScheme="primary"/>
+  <Button label="Primary" colorScheme="primary" size="lg" />
+  <Button label="Primary" colorScheme="primary" size="xs" variant="outline" />
+  <Button label="Primary" colorScheme="primary" size="sm" variant="outline" />
+  <Button label="Primary" colorScheme="primary" variant="outline" />
+  <Button label="Primary" colorScheme="primary" size="lg" variant="outline" />
+</Canvas>
+
+### Secondary
+
+<Canvas>
+  <Button label="Secondary" colorScheme="secondary" size="xs" />
+  <Button label="Secondary" colorScheme="secondary" size="sm" />
+  <Button label="Secondary" colorScheme="secondary" />
+  <Button label="Secondary" colorScheme="secondary" size="lg" />
+  <Button label="Secondary" colorScheme="secondary" size="xs" variant="outline" />
+  <Button label="Secondary" colorScheme="secondary" size="sm" variant="outline" />
+  <Button label="Secondary" colorScheme="secondary" variant="outline" />
+  <Button label="Secondary" colorScheme="secondary" size="lg" variant="outline" />
+</Canvas>

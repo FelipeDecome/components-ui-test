@@ -4,28 +4,29 @@ import * as Styled from './styles';
 
 export interface IButtonProps {
   label: string;
-  primary?: boolean;
+  colorScheme?: Styled.TColorSchemes;
   size?: Styled.TSizeEnum;
+  variant?: Styled.TVariantOptions;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 const Button: React.FC<IButtonProps> = ({
   label,
-  primary = true,
-  size = 'medium',
+  colorScheme = 'base',
+  size = 'md',
+  variant = 'solid',
   onClick,
 }) => {
   return (
-    <>
-      <Styled.Button
-        type="button"
-        primary={primary}
-        size={size}
-        onClick={onClick}
-      >
-        {label}
-      </Styled.Button>
-    </>
+    <Styled.Button
+      type="button"
+      colorScheme={colorScheme}
+      size={size}
+      variant={variant}
+      onClick={onClick}
+    >
+      {label}
+    </Styled.Button>
   );
 };
 
