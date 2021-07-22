@@ -1,8 +1,10 @@
 module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: false,
   theme: {
     colors: {
+      inherit: 'inherit',
+      transparent: 'transparent',
       primary: {
         light: '#a382f6',
         neutral: '#5b31e2',
@@ -25,24 +27,49 @@ module.exports = {
       sans: ['Poppins', 'sans-serif']
     },
     fontSize: {
-      paragraph: [
-        '16px',
-        {
-          lineHeight: '28px',
-          letterSpacing: '0.02em',
-        }
-      ],
-      'button-xs': ['12px', '14px'],
-      'button-sm': ['14px', '16px'],
-      'button-md': ['16px', '19px'],
-      'button-lg': ['18px', '21px'],
+      headline1: ['4rem'],
+      headline2: ['2.125rem', {
+        letterSpacing: 0.25,
+      }],
+      headline3: ['1.5rem'],
+      headline4: ['1.25rem', {
+        letterSpacing: 0.15,
+      }],
+      subtitle1: ['1rem', {
+          letterSpacing: 0.15,
+      }],
+      subtitle2: ['0.875rem', {
+        letterSpacing: 0.1,
+      }],
+      body1: ['1rem', {
+        letterSpacing: 0.5,
+      }],
+      body2: ['0.875rem', {
+        letterSpacing: 0.25,
+      }],
+      button: ['0.875rem'],
+      caption: ['0.75rem', {
+        letterSpacing: 0.4,
+      }],
+      overline: ['0.625rem', {
+        letterSpacing: 0.5,
+      }],
     },
     spacing: {
       '0.5': '4px',
       '1': '8px',
       '1.5': '12px',
       '2': '16px',
-      '2.5': '20px'
+      '2.5': '20px',
+      '3': '24px',
+      '4': '32px'
+    },
+    borderRadius: {
+      '0.5': '4px',
+      '1': '8px',
+      '1.5': '12px',
+      '2': '16px',
+      '2.5': '20px',
     },
     extend: {},
   },
