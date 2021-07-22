@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
+
+import { useWindowSize } from '@react-hook/window-size';
 
 import {
   TColorsOptions,
@@ -31,10 +33,15 @@ const variantOptions: Record<TTypoVariantOptions, keyof React.ReactHTML> = {
   overline: 'span',
 };
 
+type TBreakpoints = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+
+type TMedia = Partial<Record<TBreakpoints, TTypoVariantOptions>>;
+
 export interface ITyposProps {
   variant: TTypoVariantOptions;
   alignment?: TAlignmentOptions;
   color?: TColorsOptions;
+  media?: TMedia;
   render?: TRenderOptions;
 }
 
@@ -42,14 +49,27 @@ const Typos: React.FC<ITyposProps> = ({
   variant,
   alignment = 'default',
   color = 'base-dark',
+  media,
   render,
   children,
 }) => {
+  const [width] = useWindowSize({ wait: 100 });
+
+  const breakpoint = useMemo(() => {
+    /* Definir Hook para recuperar os valores de breakpoint da configuração */
+    /* Criar algoritmo para aplicar pros medias abaixo da que foi definida */
+    if (width > 1200) return 'xl';
+    if (width > 992) return 'lg';
+    if (width > 768) return 'md';
+    if (width > 640) return 'sm';
+    return 'xs';
+  }, [width]);
+
   return (
     <Typo
       $color={color}
       $alignment={alignment}
-      $variant={variant}
+      $variant={(media && media[breakpoint]) || variant}
       render={render || variantOptions[variant]}
     >
       {children}

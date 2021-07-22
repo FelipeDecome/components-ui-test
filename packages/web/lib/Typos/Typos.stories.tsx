@@ -11,10 +11,19 @@ export default {
 
 const Template: Story<ITyposProps> = args => <Typos {...args} />;
 
-export const Headline1 = Template.bind({});
+interface ITemplate {
+  args: React.PropsWithChildren<ITyposProps>;
+}
+
+export const Headline1: ITemplate = Template.bind({});
 Headline1.args = {
   children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   variant: 'headline1',
+  media: {
+    md: 'headline3',
+    sm: 'headline4',
+  },
+  render: 'h1',
 };
 
 export const Headline2 = Template.bind({});

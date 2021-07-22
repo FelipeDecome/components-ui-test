@@ -30,6 +30,7 @@
     "react": ">=16.8.0"
   },
   "devDependencies": {
+    "@react-hook/window-size": "^3.0.7",
     "rimraf": "^3.0.2",
     "rollup": "^2.53.0",
     "tailwind-styled-components": "^2.0.3"
