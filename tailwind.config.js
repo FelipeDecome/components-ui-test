@@ -27,7 +27,7 @@ module.exports = {
       sans: ['Poppins', 'sans-serif']
     },
     fontSize: {
-      headline1: ['4rem'],
+      headline1: ['3rem'],
       headline2: ['2.125rem', {
         letterSpacing: 0.25,
       }],
