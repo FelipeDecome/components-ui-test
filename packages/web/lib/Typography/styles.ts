@@ -66,6 +66,11 @@ export type TTypographyVariantOptions =
   | 'button'
   | 'overline';
 
+/**
+ *
+ * Max Width Types
+ *
+ */
 export type TMaxWidthOptions =
   | '0'
   | 'none'
@@ -83,6 +88,19 @@ export type TMaxWidthOptions =
   | 'full';
 
 const fontDefault = `font-sans font-normal`;
+const fontWeight: Record<TTypographyVariantOptions, string> = {
+  headline1: `font-medium`,
+  headline2: `font-medium`,
+  headline3: `font-medium`,
+  headline4: `font-semibold`,
+  subtitle1: `font-semibold`,
+  subtitle2: `font-semibold`,
+  body1: `font-normal`,
+  body2: `font-normal`,
+  button: `font-semibold`,
+  caption: `font-medium`,
+  overline: `font-medium`,
+};
 
 interface IContainerProps extends IRenderComponentAs {
   $variant: TTypographyVariantOptions;
@@ -104,6 +122,7 @@ export const Container = tw(RenderComponentAs)<
       `text-${props.$alignment}`,
       `text-${props.$color}`,
       `max-w-${props.$maxWidth}`,
+      fontWeight[props.$variant],
       props.$spacing,
       props.$variant === 'overline' ? `uppercase` : null,
     ])}
