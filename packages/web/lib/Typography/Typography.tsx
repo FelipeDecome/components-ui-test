@@ -1,13 +1,19 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 
 import { useWindowSize } from '@react-hook/window-size';
 
 import {
+  Container,
   TColorsOptions,
   TAlignmentOptions,
-  TTypoVariantOptions,
-} from '../utils/getClassName';
-import { Typo } from './styles';
+  TTypographyVariantOptions,
+  TSpacingOptions,
+  TMaxWidthOptions,
+} from './styles';
+
+type TBreakpoints = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+
+type TMedia = Partial<Record<TBreakpoints, TTypographyVariantOptions>>;
 
 export type TRenderOptions =
   | 'h1'
@@ -19,37 +25,38 @@ export type TRenderOptions =
   | 'p'
   | 'span';
 
-const variantOptions: Record<TTypoVariantOptions, keyof React.ReactHTML> = {
-  headline1: 'h1',
-  headline2: 'h2',
-  headline3: 'h3',
-  headline4: 'h4',
-  subtitle1: 'h5',
-  subtitle2: 'h6',
-  body1: 'p',
-  body2: 'p',
-  caption: 'span',
-  button: 'span',
-  overline: 'span',
-};
+const variantOptions: Record<TTypographyVariantOptions, keyof React.ReactHTML> =
+  {
+    headline1: 'h1',
+    headline2: 'h2',
+    headline3: 'h3',
+    headline4: 'h4',
+    subtitle1: 'h5',
+    subtitle2: 'h6',
+    body1: 'p',
+    body2: 'p',
+    caption: 'span',
+    button: 'span',
+    overline: 'span',
+  };
 
-type TBreakpoints = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
-
-type TMedia = Partial<Record<TBreakpoints, TTypoVariantOptions>>;
-
-export interface ITyposProps {
-  variant: TTypoVariantOptions;
+export interface ITypographyProps {
+  variant: TTypographyVariantOptions;
   alignment?: TAlignmentOptions;
   color?: TColorsOptions;
   media?: TMedia;
+  spacing?: TSpacingOptions;
+  maxWidth?: TMaxWidthOptions;
   render?: TRenderOptions;
 }
 
-const Typos: React.FC<ITyposProps> = ({
+const Typography: React.FC<ITypographyProps> = ({
   variant,
   alignment = 'default',
   color = 'base-dark',
   media,
+  spacing = '',
+  maxWidth = 'full',
   render,
   children,
 }) => {
@@ -66,15 +73,17 @@ const Typos: React.FC<ITyposProps> = ({
   }, [width]);
 
   return (
-    <Typo
+    <Container
       $color={color}
       $alignment={alignment}
       $variant={(media && media[breakpoint]) || variant}
+      $spacing={spacing}
+      $maxWidth={maxWidth}
       render={render || variantOptions[variant]}
     >
       {children}
-    </Typo>
+    </Container>
   );
 };
 
-export { Typos };
+export { Typography };

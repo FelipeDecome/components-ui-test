@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-/* @tailwind base; */
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -7,19 +7,19 @@
   font-size: 75%;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 668px) {
   :root {
     font-size: 87.5%;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   :root {
     font-size: 100%;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1200px) {
   :root {
     font-size: 112.5%;
   }

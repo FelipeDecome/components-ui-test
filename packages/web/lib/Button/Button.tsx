@@ -1,11 +1,11 @@
 import React from 'react';
 
+import { Typography } from '../Typography';
 import * as Styled from './styles';
 
 export interface IButtonProps {
   label: string;
   colorScheme?: Styled.TColorSchemes;
-  size?: Styled.TSizeEnum;
   variant?: Styled.TVariantOptions;
   onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
@@ -13,19 +13,19 @@ export interface IButtonProps {
 const Button: React.FC<IButtonProps> = ({
   label,
   colorScheme = 'base',
-  size = 'md',
   variant = 'solid',
   onClick,
 }) => {
   return (
     <Styled.Button
       type="button"
-      colorScheme={colorScheme}
-      size={size}
-      variant={variant}
+      $colorScheme={colorScheme}
+      $variant={variant}
       onClick={onClick}
     >
-      {label}
+      <Typography variant="button" color="inherit">
+        {label}
+      </Typography>
     </Styled.Button>
   );
 };

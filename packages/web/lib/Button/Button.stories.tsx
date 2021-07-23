@@ -12,7 +12,7 @@ export default {
 const Template: Story<IButtonProps> = args => <Button {...args} />;
 
 export const Base = Template.bind({});
-Base.args = { label: 'Base', size: 'md' };
+Base.args = { label: 'Base' };
 
 export const Primary = Template.bind({});
 Primary.args = { ...Base.args, colorScheme: 'primary', label: 'Primary' };
