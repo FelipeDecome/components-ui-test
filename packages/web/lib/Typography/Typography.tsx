@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 import { useWindowSize } from '@react-hook/window-size';
 
@@ -54,32 +54,40 @@ const Typography: React.FC<ITypographyProps> = ({
   variant,
   alignment = 'default',
   color = 'base-dark',
-  media,
+  media = {},
   spacing = '',
   maxWidth = 'full',
   render,
   children,
 }) => {
+  const [breakpoint, setBreakpoint] = useState<TBreakpoints>('md');
+  const [$variant, set$Variant] = useState<TTypographyVariantOptions>('body1');
+
   const [width] = useWindowSize({ wait: 100 });
 
-  const breakpoint = useMemo(() => {
+  useEffect(() => {
     /* Definir Hook para recuperar os valores de breakpoint da configuração */
     /* Criar algoritmo para aplicar pros medias abaixo da que foi definida */
-    if (width > 1200) return 'xl';
-    if (width > 992) return 'lg';
-    if (width > 768) return 'md';
-    if (width > 640) return 'sm';
-    return 'xs';
+    if (width > 1200) return setBreakpoint('xl');
+    if (width > 992) return setBreakpoint('lg');
+    if (width > 768) return setBreakpoint('md');
+    if (width > 640) return setBreakpoint('sm');
+    return setBreakpoint('xs');
   }, [width]);
+
+  useEffect(
+    () => set$Variant(media[breakpoint] || variant),
+    [breakpoint, media, variant],
+  );
 
   return (
     <Container
       $color={color}
       $alignment={alignment}
-      $variant={(media && media[breakpoint]) || variant}
+      $variant={$variant}
       $spacing={spacing}
       $maxWidth={maxWidth}
-      render={render || variantOptions[variant]}
+      render={render || variantOptions[$variant]}
     >
       {children}
     </Container>
